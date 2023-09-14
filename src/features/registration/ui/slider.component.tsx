@@ -2,7 +2,7 @@ import { Image } from '@shared/ui/image'
 import clsx from 'clsx'
 import React, { memo, useEffect, useMemo, useRef, useState } from 'react'
 
-import { registrationStore } from '../models/registration.store'
+import { useRegistrationStore } from '../models/registration.store'
 import type { SliderItem } from '../models/registration.types'
 import { UserType } from '../models/registration.types'
 import { sliderSpecialistData, sliderUserData } from '../models/slider.data'
@@ -13,7 +13,7 @@ export const Slider = memo(() => {
   const [currentSlide, setCurrentSlide] = useState(1)
   const [isChangingType, setIsChangingType] = useState(false)
 
-  const { type } = registrationStore()
+  const { type } = useRegistrationStore()
 
   const { currentData, totalItems } = useMemo((): {
     currentData: SliderItem[]

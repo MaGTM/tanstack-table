@@ -1,7 +1,7 @@
 import clsx from 'clsx'
 import { memo } from 'react'
 
-import { registrationStore } from '../models/registration.store'
+import { useRegistrationStore } from '../models/registration.store'
 import { UserType } from '../models/registration.types'
 
 const types = [
@@ -16,7 +16,7 @@ const types = [
 ]
 
 export const UserTypeSwitcher = memo(() => {
-  const { setType, type } = registrationStore()
+  const { setType, type } = useRegistrationStore()
 
   return (
     <div className="relative  mt-[2.08rem] h-[2.84722rem]  w-[20.13889rem] rounded-[1.25rem] shadow-basic">

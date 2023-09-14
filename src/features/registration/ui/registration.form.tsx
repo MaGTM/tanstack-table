@@ -25,7 +25,13 @@ const schema = z
 
 type FormValues = z.infer<typeof schema>
 
-export const RegistrationForm = () => {
+interface IRegistrationFormProperties {
+  goLogin: VoidFunction
+}
+
+export const RegistrationForm = (props: IRegistrationFormProperties) => {
+  const { goLogin } = props
+
   const { handleSubmit, control, watch } = useForm<FormValues>({
     resolver: zodResolver(schema),
     mode: 'onBlur',
@@ -68,6 +74,12 @@ export const RegistrationForm = () => {
             type="submit"
             disabled={!watch('isPersonal')}
           />
+          <p className="text-center text-small">
+            У вас уже есть аккаунт?{' '}
+            <button className="inline font-medium" onClick={goLogin} type="button">
+              Войти
+            </button>
+          </p>
         </form>
       </div>
       <div className="relative">
