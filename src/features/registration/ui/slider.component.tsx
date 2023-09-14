@@ -11,6 +11,7 @@ const INTERVAL = 3000
 
 export const Slider = memo(() => {
   const [currentSlide, setCurrentSlide] = useState(1)
+  const [isChangingType, setIsChangingType] = useState(false)
 
   const { type } = registrationStore()
 
@@ -29,20 +30,7 @@ export const Slider = memo(() => {
   const interval = useRef<ReturnType<typeof setInterval>>()
 
   const nextSlider = () => {
-    setCurrentSlide((previousState) => {
-      const next = previousState + 1
-      const previous = previousState - 1
-
-      if (next > totalItems) {
-        setCurrentSlide(1)
-      }
-
-      if (previous < 0) {
-        setCurrentSlide(totalItems - 1)
-      }
-
-      return previousState + 1
-    })
+    setCurrentSlide((previousState) => previousState + 1)
   }
 
   const selectSlide = (slide: number) => {
@@ -53,17 +41,31 @@ export const Slider = memo(() => {
 
   useEffect(() => {
     setCurrentSlide(1)
+    setIsChangingType(true)
+    const timeout = setTimeout(() => {
+      setIsChangingType(false)
+    }, 50)
     interval.current = setInterval(() => nextSlider(), INTERVAL)
 
     return () => {
       clearInterval(interval.current)
+      clearTimeout(timeout)
     }
   }, [type])
+
+  useEffect(() => {
+    if (currentSlide > totalItems) {
+      selectSlide(1)
+    }
+  }, [currentSlide, totalItems])
 
   return (
     <div className="absolute h-full w-full overflow-hidden rounded-l-[4.86rem]">
       <div
-        className="relative flex h-full transition-[right] duration-500"
+        className={clsx(
+          'relative flex h-full transition-[right]',
+          isChangingType ? 'duration-0' : 'duration-500',
+        )}
         style={{
           right: `calc(100% * ${currentSlide - 1})`,
         }}
