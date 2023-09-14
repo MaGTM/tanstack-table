@@ -1,22 +1,6 @@
 # 🦄⚡ VITE template
 
-[comment]: <> (startof installation instruction)
 
-## 💾Установка
-
-PowerShell
-
-```Powershell
-git clone https://github.com/Neca-development/react-template.git <ИМЯ ПАКЕТА> ; cd <ИМЯ ПАКЕТА> ; git remote remove origin ; npm i ; node scripts/post-build.js
-```
-
-Bash
-
-```Bash
-git clone https://github.com/Neca-development/react-template.git <ИМЯ ПАКЕТА> && cd <ИМЯ ПАКЕТА> && git remote remove origin && npm i && node scripts/post-build.js
-```
-
-[comment]: <> (endof installation instruction)
 
 ## 💽Скрипты
 

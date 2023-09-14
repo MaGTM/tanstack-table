@@ -1,21 +1,14 @@
-import { Meta } from '@shared/meta'
-import { Image } from '@shared/ui/image'
+import { useModal } from '@shared/lib/hooks'
+import { AuthModal } from '@widgets/auth-modal'
 
 export const HomePage = () => {
+  const { isOpen, toggleHandler } = useModal()
+
   return (
-    <>
-      <Meta description="Unistory next" title="Unistory" />
-      <h1>Unistory next template</h1>
-      <h2>{process.env.VITE_APP_URL || null}</h2>
-      <Image
-        alt=""
-        style={{
-          width: '40rem',
-        }}
-        responsive
-        src="/assets/random/random.jpg"
-        loading="lazy"
-      />
-    </>
+    <div>
+      <button onClick={toggleHandler}>modal</button>
+
+      <AuthModal onModalClose={toggleHandler} isOpen={isOpen} />
+    </div>
   )
 }

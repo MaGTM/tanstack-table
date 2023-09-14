@@ -23,8 +23,8 @@
         "simple-import-sort"
       ],
       "extends": [
-        "plugin:tailwindcss/recommended",
-        "plugin:prettier/recommended"
+        "plugin:prettier/recommended",
+        "plugin:tailwindcss/recommended"
       ],
       "parserOptions": {
         "project": "./tsconfig.json"
@@ -66,9 +66,11 @@
         "react/button-has-type": "warn",
         "react/no-unused-prop-types": "warn",
         "jsx-a11y/no-access-key": "warn",
+        "jsx-a11y/control-has-associated-label": "off",
         "react/no-array-index-key": "warn",
         "react/jsx-no-useless-fragment": "warn",
         "react/no-unstable-nested-components": "off",
+        "jsx-a11y/label-has-associated-control": "off",
         // @typescript-eslint rules
         "@typescript-eslint/comma-dangle": "off",
         "@typescript-eslint/strict-boolean-expressions": "off",
@@ -386,7 +388,7 @@
             ]
           }
         ]
-      },
+      }
     },
     // Configuration for testing
     {
