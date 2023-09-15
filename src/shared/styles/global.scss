@@ -9,3 +9,8 @@ html {
     font-size: 16px;
   }
 }
+
+input:-webkit-autofill {
+  -webkit-box-shadow:0 0 0 40rem white inset;
+  -webkit-text-fill-color: #333;
+}

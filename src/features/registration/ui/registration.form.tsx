@@ -49,13 +49,25 @@ export const RegistrationForm = (props: IRegistrationFormProperties) => {
         <form
           onSubmit={handleSubmit(submitHandler)}
           className="mt-[1.87rem] flex flex-col gap-[0.63rem]"
+          noValidate
         >
-          <ControlledInput control={control} name="email" placeholder="Email" />
-          <ControlledInput control={control} name="password" placeholder="Пароль" />
+          <ControlledInput
+            control={control}
+            name="email"
+            placeholder="Email"
+            type="email"
+          />
+          <ControlledInput
+            control={control}
+            name="password"
+            placeholder="Пароль"
+            type="password"
+          />
           <ControlledInput
             control={control}
             name="confirmPassword"
             placeholder="Повторите пароль"
+            type="password"
           />
           <ControlledCheckbox
             label={

@@ -7,7 +7,7 @@ import { Input } from './input.component'
 
 interface IControlledInputProperties<T extends FieldValues>
   extends UseControllerProps<T>,
-    Pick<InputHTMLAttributes<HTMLInputElement>, 'placeholder' | 'readOnly'> {
+    Pick<InputHTMLAttributes<HTMLInputElement>, 'placeholder' | 'readOnly' | 'type'> {
   label?: string
 }
 
